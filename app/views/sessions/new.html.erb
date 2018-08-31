@@ -1,0 +1,16 @@
+<h1>ログイン</h1>
+<div>
+  <%= form_for @form, url: :sessions do |f| %>
+    <div>
+      <%= f.label :user_id, 'ユーザID' %>
+      <%= f.text_field :user_id %>
+    </div>
+    <div>
+      <%= f.label :password, 'パスワード' %>
+      <%= f.password_field :password %>
+    </div>
+    <div>
+      <%= f.submit 'ログインする' %>
+    </div>
+  <% end %>
+</div>
