@@ -24,11 +24,12 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
+    redirect_to login_path
   end
-
 
   private
   def login_params
-    params.require(:login_form).permit(:user_id, :password)
+    params.require(:login_form).permit(:user_id)
   end
 end
