@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: [:new, :create]
 
   def index
+    @photos = current_user.photos.order('created_at DESC')
   end
 
   def new
