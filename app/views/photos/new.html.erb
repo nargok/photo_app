@@ -1,2 +1,19 @@
 <%= render 'logout' %>
 <h1>写真アップロード</h1>
+
+<div>
+  <%= form_for(@photo, :html => {:multipart => true}) do |f| %>
+    <div>
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :filename, '画像ファイル' %>
+      <%= f.file_field :filename %>
+    </div>
+    <div>
+      <%= f.submit "アップロード" %>
+      <%= link_to "キャンセル", photos_path %>
+    </div>
+  <% end %>
+</div>
