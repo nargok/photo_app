@@ -33,25 +33,20 @@ class PhotosController < ApplicationController
   def callback
     code = params[:code]
 
-    # パラメータは一度素でここで作成する　→　後でconstants化する
-    # パラメータを作成する
     params = {
-      'client_id' => 'f17620f69de54893c5df06796da7271e0fa6911e318bff0b8ea54a7cce7980ce',
-      'client_secret' => 'e3140d157ced3fbbc2900bd64ad4f93b1a0ae034174a89ce1844e3ad61715d4e',
-      'redirect_uri' => 'http://localhost:3000/oauth/callback',
-      'grant_type' => 'authorization_code',
+      'client_id' => Constants::CLIENT_ID,
+      'client_secret' => Constants::CLIENT_SECRET,
+      'redirect_uri' => Constants::REDIRECT_URI,
+      'grant_type' => Constants::GRANT_TYPE,
       'code' => code
     }
 
-    # http通信する
-    res = Net::HTTP.post_form(URI.parse('https://arcane-ravine-29792.herokuapp.com/oauth/token'), params)
+    res = Net::HTTP.post_form(URI.parse(Constants::GET_TOKEN_PATH), params)
     api_response = JSON.parse(res.body)
     token = api_response['access_token']
 
-    # 取得したアクセストークンをsessionに追加する
     session[:tweet_app_token] =  token
 
-    # 写真一覧へリダイレクトする
     redirect_to photos_path
   end
 
