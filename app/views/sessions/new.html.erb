@@ -1,6 +1,6 @@
 <h1>ログイン</h1>
 <%= render 'shared/error', obj: @form %>
-<% unless @form.errors.any? %>
+<% unless @form.errors.any? || flash[:error].nil? %>
   <ul>
     <li class="error_message"><%= flash[:error] %></li>
   </ul>

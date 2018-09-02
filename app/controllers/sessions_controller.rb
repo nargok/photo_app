@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      flash[:error] = "ユーザーID、パスワードが一致するアカウントが見つかりません"
+      flash.now[:error] = "ユーザーID、パスワードが一致するアカウントが見つかりません"
       render :new
     end
   end
