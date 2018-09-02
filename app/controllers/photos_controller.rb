@@ -10,11 +10,12 @@ class PhotosController < ApplicationController
   end
 
   def create
-    upload_file = photo_params[:filename]
-    output_path = Rails.root.join('public/images', upload_file.original_filename)
-
+    unless photo_params[:filename].blank?
+      upload_file = photo_params[:filename]
+      output_path = Rails.root.join('public/images', upload_file.original_filename)
+      @photo.filename = upload_file.original_filename
+    end
     @photo.title = photo_params[:title]
-    @photo.filename = upload_file.original_filename
     @photo.user_id = current_user.id
 
     if @photo.save
