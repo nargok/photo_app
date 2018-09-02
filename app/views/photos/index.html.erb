@@ -1,7 +1,11 @@
 <%= render 'logout' %>
 <h1>写真一覧</h1>
-
-<%= link_to "写真をアップロードする", new_photo_path %>
+<div>
+  <a href="<%= Constants::GET_CODE_PATH %>">MyTweetAppと連携</a>
+</div>
+<div>
+  <%= link_to "写真をアップロードする", new_photo_path %>
+</div>
 
 <ul>
   <% @photos.each do |photo| %>
