@@ -51,26 +51,23 @@ class PhotosController < ApplicationController
   end
 
   def tweet
-    # Headerをつくる
-    uri = URI.parse('https://arcane-ravine-29792.herokuapp.com/api/tweets')
+    uri = URI.parse(Constants::TWEET_PATH)
     https = Net::HTTP.new(uri.host, uri.port)
     https.use_ssl = true
     req = Net::HTTP::Post.new(uri.request_uri)
     req['Content-Type'] = 'application/json'
     req['Authorization'] = 'Bearer ' + session[:tweet_app_token]
 
-    # Body
-    @photo = Photo.find(params[:id])
-    image_path = 'http://' + request.host_with_port + '/images/' + @photo.filename
-    @params = {
-      'text' => @photo.title,
+    photo = Photo.find(params[:id])
+    image_path = 'http://' + request.host_with_port + '/images/' + photo.filename
+    params = {
+      'text' => photo.title,
       'url' => image_path
     }.to_json
 
-    req.body = @params
+    req.body = params
     res = https.request(req)
 
-    # 写真一覧へリダイレクトする
     redirect_to photos_path
   end
 

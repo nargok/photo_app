@@ -3,6 +3,7 @@ module Constants
   OAUTH_PATH = 'oauth/'
   CODE_PATH = 'authorize?'
   TOKEN_PATH = 'token'
+  TWEET_API = 'api/tweets'
 
   CLIENT_ID = 'f17620f69de54893c5df06796da7271e0fa6911e318bff0b8ea54a7cce7980ce'
   CLIENT_SECRET = 'e3140d157ced3fbbc2900bd64ad4f93b1a0ae034174a89ce1844e3ad61715d4e'
@@ -22,4 +23,7 @@ module Constants
   GET_TOKEN_PATH = TWEET_APP_BASE_URL +
                    OAUTH_PATH +
                    TOKEN_PATH
+
+  TWEET_PATH = TWEET_APP_BASE_URL +
+               TWEET_API
 end
