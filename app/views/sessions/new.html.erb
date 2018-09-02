@@ -1,5 +1,11 @@
 <h1>ログイン</h1>
-<%= render 'error', obj: @errors %>
+<%= render 'shared/error', obj: @form %>
+<% unless @form.errors.any? %>
+  <ul>
+    <li class="error_message"><%= flash[:error] %></li>
+  </ul>
+<% end %>
+
 <div>
   <%= form_for @form, url: :sessions do |f| %>
     <div>
