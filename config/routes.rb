@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
   get 'oauth/callback', to: 'photos#callback'
+  post 'tweet', to: 'photos#tweet'
 
   resource :sessions, only: [:new, :create, :destroy]
   resources :photos, only: [:index, :new, :create]

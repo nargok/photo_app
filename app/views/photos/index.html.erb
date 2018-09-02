@@ -14,6 +14,7 @@
       <div>
         <img src="<%= image_path(photo.filename)%>" alt="<%= photo.title %>">
       </div>
+      <%= button_to 'ツイートする', { action: :tweet, id: photo } if session[:tweet_app_token] %>
     </li>
   <% end %>
 </ul>
