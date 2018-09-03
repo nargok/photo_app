@@ -10,7 +10,7 @@
 <ul>
   <% @photos.each do |photo| %>
     <li class="photo_list">
-      <p><%= photo.title %></p>
+      <p class="title"><%= photo.title %></p>
       <div>
         <img src="<%= image_path(photo.filename)%>" alt="<%= photo.title %>">
       </div>
