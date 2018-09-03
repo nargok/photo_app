@@ -9,10 +9,11 @@ https://www.docker.com/products/docker-desktop
 $ docker pull ruby:2.5
 $ docker pull mysql:5.7
 ```
-## ソースコードをクローンする
+## ソースコードをクローンして画像格納用ディレクトリをつくる
 ```
 $ git clone https://github.com/nargok/photo_app.git
 $ cd photo_app
+$ mkdir public/images
 ```
 ## アプリケーションを立ち上げる
 ```
