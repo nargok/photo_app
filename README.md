@@ -1,24 +1,40 @@
-# README
+# 環境構築手順
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Dockerをインストールする
+下記サイトよりDockerをインストールしてください。
+https://www.docker.com/products/docker-desktop
 
-Things you may want to cover:
+## Docker imageを取得する
+```
+$ docker pull ruby:2.5
+$ docker pull mysql:5.7
+```
+## ソースコードをクローンする
+```
+$ git clone https://github.com/nargok/photo_app.git
+$ cd photo_app
+```
+## アプリケーションを立ち上げる
+```
+$ docker-compose run web bundle install --path vendor/bundle
+$ docker-compose run web rake db:create
+$ docker-compose run web rake db:migrate
+$ docker-compose up -d
+```
 
-* Ruby version
+## テストユーザの作成
+```
+$ docker-compose run web rake db:seed
+```
 
-* System dependencies
+## 動作確認
+ブラウザで、http://localhost:3000にアクセスしてください
+動作確認のため、以下2つのアカウントをお使い頂けます。
 
-* Configuration
+### テストユーザ1
+- ユーザID  :  user1
+- パスワード : password
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### テストユーザ2
+- ユーザID  :  user2
+- パスワード : password
