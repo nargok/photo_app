@@ -1,7 +1,7 @@
 # 環境構築手順
 
 ## Dockerをインストールする
-下記サイトよりDockerをインストールしてください。
+下記サイトよりDockerをインストールしてください。  
 https://www.docker.com/products/docker-desktop
 
 ## Docker imageを取得する
