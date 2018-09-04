@@ -29,7 +29,7 @@ $ docker-compose run web rake db:seed
 ```
 
 ## 動作確認
-ブラウザで、http://localhost:3000にアクセスしてください
+ブラウザで、[http://localhost:3000](http://localhost:3000)にアクセスしてください。  
 動作確認のため、以下2つのアカウントをお使い頂けます。
 
 ### テストユーザ1
